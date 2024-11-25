@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
-from process import convert_to_grayscale, show_images, save_pgm_image
+from process import convert_to_grayscale, show_images, save_pgm_image, binarize_image
 
 class ImageProcess:
     def __init__(self, root):
@@ -54,7 +54,11 @@ class ImageProcess:
         grayscale_path = 'grayscale.pgm'
         save_pgm_image(grayscale_path, width, height, grayscale_data)
 
-        show_images(self.loaded_image, grayscale_path)
+        binary_data = binarize_image(grayscale_data)
+        binary_path = 'binary.pgm'
+        save_pgm_image(binary_path, width, height, binary_data)
+
+        show_images(self.loaded_image, grayscale_path, binary_path)
 
 if __name__ == '__main__':
     root = Tk()
