@@ -1,8 +1,7 @@
 from tkinter import *
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
-from process import convert_to_grayscale
-
+from process import convert_to_grayscale, show_images, save_pgm_image
 
 class ImageProcess:
     def __init__(self, root):
@@ -22,6 +21,7 @@ class ImageProcess:
         self.image_label.pack()
 
     def open_image(self):
+        """Load the image"""
         file_path = filedialog.askopenfilename(
             title='Open Image',
             filetypes=[("PPM Image Files", "*.ppm")]
@@ -36,18 +36,25 @@ class ImageProcess:
             self.image_label.image = img_tk
 
     def generate_image(self):
-
+        """Convert image to grayscale and binary color."""
         if not self.loaded_image:
-            messagebox.showwarning("Input Error", "Please load a image.")
+            messagebox.showwarning("Input Error", "Please load an image.")
             return
 
         with open(self.loaded_image, 'rb') as file:
-            file.readline()
+            file.readline()  # Skip the magic number
             dimensions = file.readline().decode('ascii').strip()
+            while dimensions.startswith('#'):
+                dimensions = file.readline().decode('ascii').strip()
             width, height = map(int, dimensions.split())
-            file.readline()
+            file.readline()  # Skip the max color value
             pixel_data = list(file.read())
 
+        grayscale_data = convert_to_grayscale(width, height, pixel_data)
+        grayscale_path = 'grayscale.pgm'
+        save_pgm_image(grayscale_path, width, height, grayscale_data)
+
+        show_images(self.loaded_image, grayscale_path)
 
 if __name__ == '__main__':
     root = Tk()
