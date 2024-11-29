@@ -8,3 +8,25 @@
 -------------------------------------------------------
 
 -------------------------------------------------------
+## Tecnologias Usadas
+
+- **Python Version**: 3.10.12
+-----------------------------------------------------------
+## Installação e Setup:
+
+Clone the project
+
+```bash
+  git clone https://github.com/daniel-neves-dev/dio_python_bank.git
+```
+
+Go to the project directory
+
+```bash
+  cd dio_python_bank
+```
+
+On the terminal type
+
+```bash
+  python3 account.py
