@@ -3,7 +3,7 @@
 <h2>Desafio 2</h2>
 
 <h3>Objetivo:</h3>
-<p>Este projeto foi desenvolvido como parte do Bootcamp BairesDev - Machine Learning Practitioner, oferecido pela Digital Innovation One (DIO). O objetivo deste desafio é aplicar redução de imagens para redes neurais em machine learning.</p>
+<p>Este projeto foi desenvolvido como parte do Bootcamp BairesDev - Machine Learning Practitioner, oferecido pela Digital Innovation One (DIO). O objetivo deste desafio é aplicar a redução de imagens por meio de suas cores para redes neurais em machine learning, sem o uso de bibliotecas.</p>
 
 -------------------------------------------------------
 ![ex1](https://github.com/user-attachments/assets/ba39c548-a9a3-4dc7-898f-a7e7ce279534)
